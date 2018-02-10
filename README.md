@@ -1,5 +1,5 @@
 # project-euler-perl
-Some solutions for projecteuler.net in Perl. Most are dirty brute force ways, but hey.
+Some solutions for projecteuler.net in Perl. Most are dashed off dirty brute force solutions, but hey.
 
 ## 1
 ```perl
