@@ -165,7 +165,7 @@ print "$best\n";
 ```
 
 
-## 8
+## 9
 ```perl
 
 for (my $c = 1000-2; $c>=2; $c--) {
@@ -177,4 +177,24 @@ for (my $c = 1000-2; $c>=2; $c--) {
 	}
 }
 
+```
+
+## 10
+```perl
+sub isPrime($) { 
+	my $i = shift;
+	for (my $j = 3; $j<= sqrt($i); $j++) {
+		return 0 if ($i % $j == 0);
+	}
+	return 1;
+}
+
+my $sum = 2+3+5+7;
+for (my $i = 11; $i < 2000000;$i+=2) {
+	print "... $i\n" if ($i%10001==0);
+	if (isPrime($i)) {
+		$sum += $i;
+	}
+}
+print "=> $sum\n";
 ```
