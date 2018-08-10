@@ -260,3 +260,21 @@ for(my $i = 0; $i < 20-3; $i++) {
 print "$max - ($str_points)";
 
 ```
+
+## 12
+```perl
+my $sum = 1;
+for (my $i = 2; ; $i++) {
+	$sum += $i;
+	my $nb_divisors = 2;
+	for (my $j = 2; $j < sqrt($sum); $j++) {
+		if ($sum % $j == 0) {
+			$nb_divisors+=2;
+			#print "$j;";
+		}
+	}
+	print " - $i - $sum - (nb_divisors: $nb_divisors)\n" if ($i % 100 == 0);
+	last if ($nb_divisors>=500);
+}
+print "$sum\n";
+```
