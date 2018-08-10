@@ -163,3 +163,18 @@ for (my $i = 0; $i < length($s); $i++) {
 
 print "$best\n";
 ```
+
+
+## 8
+```perl
+
+for (my $c = 1000-2; $c>=2; $c--) {
+	for (my $b = $c-1; $b>=1; $b--) {
+		my $a = 1000 - $b - $c;
+		if ($a*$a + $b*$b == $c*$c) {
+			print "$a $b $c product=".($a*$b*$c)."\n";
+		}
+	}
+}
+
+```
