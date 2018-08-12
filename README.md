@@ -281,8 +281,6 @@ print "$sum\n";
 
 ## 13
 ```perl
-#!/usr/bin/perl
-
 my $v = "37107287533902102798797998220837590246510135740250
 46376937677490009712648124896970078050417018260538
 74324986199524741059474233309513058123726617309629
@@ -427,4 +425,23 @@ for (my $i = 1; $i <= 1000000; $i++) {
 }
 
 print "=> $max_i - $nb_max_iterations\n";
+```
+
+## 15
+```perl
+my @l;
+my $SIZE = 20;
+
+sub tryPath($$) { 
+	my ($i, $j) = @_;
+	return 1 if ($i == $SIZE && $j == $SIZE);
+	return $l[$i][$j] if (defined $l[$i][$j]);
+	my $nb_paths1 = tryPath($i+1, $j) if ($i < $SIZE);
+	my $nb_paths2 = tryPath($i, $j+1) if ($j < $SIZE);
+	$l[$i]=[] unless defined $l[$i];
+	$l[$i][$j] = $nb_paths1+$nb_paths2;
+	return $nb_paths1+$nb_paths2;
+}
+
+print tryPath(0, 0)."\n";
 ```
