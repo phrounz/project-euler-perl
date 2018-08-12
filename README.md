@@ -395,3 +395,36 @@ for(my $i;$i<length($v);$i+=50) {
 print "=> $sum\n";
 print "=> ".substr("$sum", 0, 1).substr("$sum", 2, 9)."\n";
 ```
+
+## 14
+```perl
+
+my $max_i = -1;
+my $nb_max_iterations = -1;
+my %h;
+for (my $i = 1; $i <= 1000000; $i++) {
+	my $n = $i;
+	my $nb_iterations = 0;
+	while($n != 1) {
+		if (exists $h{$n}) {
+			$nb_iterations += $h{$n};
+			last;
+		}
+		if ($n % 2 == 0) { # even
+			$n/=2;
+		} else { # odd
+			$n=3*$n+1;
+		}
+		#print "$n\n";
+		$nb_iterations++;
+	}
+	$h{$i} = $nb_iterations;
+	if ($nb_iterations > $nb_max_iterations) {
+		$nb_max_iterations = $nb_iterations;
+		$max_i = $i;
+	}
+	print "... $i $max_i $nb_max_iterations\n" if ($i % 10000 == 0);
+}
+
+print "=> $max_i - $nb_max_iterations\n";
+```
